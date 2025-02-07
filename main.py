@@ -26,7 +26,7 @@ def main():
     index_html = template.render(items=index_files)
 
 
-    output_path = pathlib.Path(config["config"]["indexDir"]) / "index.html"
+    output_path = pathlib.Path(config["config"]["rootDir"]) / "index.html"
     with open(output_path, "w") as output_file:
         output_file.write(index_html)
 
