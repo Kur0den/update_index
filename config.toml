@@ -1,2 +1,2 @@
 [config]
-rootDir = "~"
+rootDir = "../path/to/root"
