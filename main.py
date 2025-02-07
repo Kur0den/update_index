@@ -1,6 +1,7 @@
 import pathlib
 import sys
 import tomllib
+import jinja2
 
 
 def main():
@@ -16,7 +17,21 @@ def main():
             if index_file.exists():
                 index_files.append((index_file, path.name))
 
-    print(index_files)
+    # index.htmlをtemplateをもとに作成
+    template_path = pathlib.Path("template/index.html")
+    template = jinja2.Template(open(pathlib.Path("template.html"), "r").read())
+
+
+
+    index_html = template.render(items=index_files)
+
+
+    output_path = pathlib.Path(config["config"]["indexDir"]) / "index.html"
+    with open(output_path, "w") as output_file:
+        output_file.write(index_html)
+
+    print(f"Index file created at: {output_path}")
+
 
 if __name__ == "__main__":
     main()

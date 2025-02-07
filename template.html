@@ -1,15 +1,18 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Index.html</title>
 </head>
+
 <body>
     <ul>
         {% for item in items %}
-            <li>{{ item }}</li>
+        <li><a href="{{ item[0] }}">{{ item[1] }}</a></li>
         {% endfor %}
     </ul>
 </body>
+
 </html>
