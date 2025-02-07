@@ -6,11 +6,11 @@ import tomllib
 def main():
     #tomlを読み込む
     toml_path = pathlib.Path("config.toml")
-    config = tomllib.load(toml_path)
+    config = tomllib.load(open(toml_path, "rb"))
 
     # rootDirの一階層したのディレクトリ内のindex.htmlのpathとそのディレクトリ名を取得
     index_files = []
-    for path in pathlib.Path(config["rootDir"]).iterdir():
+    for path in pathlib.Path(config["config"]["rootDir"]).iterdir():
         if path.is_dir():
             index_file = path / "index.html"
             if index_file.exists():
